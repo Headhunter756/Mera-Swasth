@@ -1,0 +1,135 @@
+/* Base login box styling */
+.login_box {
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    /* softer border */
+    padding: 30px 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    /* prevent it from stretching too wide */
+    margin: 40px auto;
+    /* center on page */
+    background: rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+}
+
+/* Heading */
+.login_box h2 {
+    margin-bottom: 20px;
+    color: #0077b6;
+    font-size: 1.5rem;
+}
+
+/* Labels */
+.login_box label {
+    display: block;
+    text-align: left;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: white;
+    font-size: 0.95rem;
+}
+
+/* Inputs */
+.login_box input[type="text"],
+.login_box input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #90e0ef;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    font-size: 1rem;
+}
+
+.login_box input[type="text"]:focus,
+.login_box input[type="password"]:focus {
+    border-color: #0077b6;
+    box-shadow: 0 0 5px rgba(0, 119, 182, 0.3);
+}
+
+/* Buttons */
+.login_box input[type="button"],
+.login_box input[type="reset"] {
+    width: 48%;
+    padding: 12px;
+    margin: 10px 1%;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+    font-size: 1rem;
+}
+
+.login_box input[type="button"] {
+    background: #0077b6;
+    color: #ffffff;
+}
+
+.login_box input[type="button"]:hover {
+    background: #023e8a;
+    transform: scale(1.03);
+}
+
+.login_box input[type="reset"] {
+    background: #90e0ef;
+    color: #000000;
+}
+
+.login_box input[type="reset"]:hover {
+    background: #48cae4;
+    transform: scale(1.03);
+}
+
+/* Link */
+.login_box a {
+    display: block;
+    margin-top: 15px;
+    color: #0077b6;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.login_box a:hover {
+    text-decoration: underline;
+}
+
+/* ---------------- Responsive Styles ---------------- */
+@media (max-width: 480px) {
+    .login_box {
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 95%;
+        /* fit smaller screens */
+    }
+
+    .login_box h2 {
+        font-size: 1.3rem;
+    }
+
+    .login_box input[type="button"],
+    .login_box input[type="reset"] {
+        width: 100%;
+        /* stack buttons vertically */
+        margin: 8px 0;
+    }
+
+    .login_box label {
+        font-size: 0.9rem;
+    }
+
+    .login_box input[type="text"],
+    .login_box input[type="password"] {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .login_box a {
+        font-size: 1rem;
+        margin-top: 20px;
+    }
+}

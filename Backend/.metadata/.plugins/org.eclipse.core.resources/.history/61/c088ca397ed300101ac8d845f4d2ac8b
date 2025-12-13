@@ -1,0 +1,5 @@
+spring.application.name=Mera Swasth
+
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=update
+

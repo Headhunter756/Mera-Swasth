@@ -1,0 +1,48 @@
+package in.aap.main.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+import in.aap.main.beans.Hospital;
+import in.aap.main.repo.HospitalRepo;
+
+@Service
+public class HospitalService implements UserDetailsService{
+
+	@Autowired
+	private HospitalRepo repo;
+	@Autowired
+	private JWTService jwtservice;
+	
+	public Hospital create(Hospital hospital) {
+		if (hospital!=null && !repo.existsByRegistration(hospital.getRegistration()) && !repo.existsByAccredation(hospital.getAccredation())) {
+			hospital.setPassword(jwtservice.encodePasword(hospital.getPassword()));
+			return repo.save(hospital);
+		} else {
+			return null;
+		}
+	}
+	
+//	public Hospital get(String email,String password) {
+//		Hospital hosp = repo.findByEmail(email);
+//		if (hosp!=null && jwtservice.matchPassword(password, hosp.getPassword())) {
+//			return hosp;
+//		} else {
+//			return null;
+//		}
+//	}
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		Hospital hospital = repo.findByEmail(username);
+		if (hospital!=null) {
+			return new Hospital(hospital);
+		} else {
+			return null;
+		}
+	}
+	
+}

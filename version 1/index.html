@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Health Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="laptop-frame">
+        <div class="screen">
+            <header class="topbar">
+                <nav class="nav-left">
+                    <button class="nav-back">◀</button>
+                    <span class="nav-link">Health Records</span>
+                    <span class="nav-link active">Dashboard</span>
+                    <span class="nav-link">Insurance Management</span>
+                </nav>
+            </header>
+
+            <main class="dashboard">
+                <section class="row gauges">
+                    <div class="gauge-card">
+                        <div class="gauge-label">BP Results</div>
+                        <div class="gauge-value">120/80</div>
+                        <div class="mini-chart" id="bpSpark"></div>
+                    </div>
+
+                    <div class="gauge-card">
+                        <div class="gauge-label">Sugar Test</div>
+                        <div class="gauge-value">85 mg/dL</div>
+                        <div class="mini-chart" id="sugarSpark"></div>
+                    </div>
+
+                    <div class="gauge-card health-score">
+                        <div class="gauge-label">Health Score</div>
+                        <div class="circle-gauge" id="healthGauge">
+                            <svg viewBox="0 0 36 36" class="circular-chart">
+                                <path class="circle-bg" d="M18 2.0845
+                    a 15.9155 15.9155 0 0 1 0 31.831
+                    a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                <path class="circle" stroke-dasharray="70,100" d="M18 2.0845
+                    a 15.9155 15.9155 0 0 1 0 31.831
+                    a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                <text x="18" y="20.5" class="percentage">92</text>
+                            </svg>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="row content">
+                    <div class="col left">
+                        <div class="card charts">
+                            <h3 class="card-title">Charts & Trends</h3>
+                            <div class="chart-wrap">
+                                <canvas id="bpTrend" height="120"></canvas>
+                            </div>
+
+                            <div class="controls">
+                                <div class="pill active">7 Days</div>
+                                <div class="pill">30 Days</div>
+                                <div class="pill">3M Months</div>
+                                <div class="pill">All Time</div>
+                            </div>
+
+                            <div class="chart-wrap small">
+                                <canvas id="bpTrend2" height="90"></canvas>
+                            </div>
+
+                            <div class="secure-upload">
+                                <div class="upload-icon">📎</div>
+                                <div class="upload-text">
+                                    <div class="title">Secure Document Upload</div>
+                                    <div class="sub">Drag & Drop files here (PDF, DOCX, JPG)</div>
+                                </div>
+                                <div class="upload-actions">
+                                    <button class="btn ghost">Lab Results</button>
+                                    <button class="btn">Radiology Report</button>
+                                    <button class="btn ghost">Vaccine Record</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <aside class="col right">
+                        <div class="card small-card appointments">
+                            <h4>Upcoming Appointments</h4>
+                            <div class="appt">
+                                <div class="appt-title">Nov 15, 10:40AM · Dr Arya Sharma</div>
+                                <div class="appt-sub">Cardiologist</div>
+                                <div class="appt-actions">Add to calendar</div>
+                            </div>
+                        </div>
+
+                        <div class="card small-card reminder">
+                            <h4>Reminder / Task List</h4>
+                            <div class="reminder-item">Take blood tests · 7:30 PM</div>
+                        </div>
+
+                        <!-- <div class="card small-card providers">
+                            <h4>Provider & Presets</h4>
+                            <div class="provider">
+                                <img src="https://i.pravatar.cc/40?img=5" alt="avatar">
+                                <div class="prov-info">
+                                    <div class="name">Dr. SotiAM</div>
+                                    <div class="role">Primary Care</div>
+                                </div>
+                            </div>
+
+                            <div class="provider">
+                                <img src="https://i.pravatar.cc/40?img=7" alt="avatar">
+                                <div class="prov-info">
+                                    <div class="name">Dr. Gow (P.O)</div>
+                                    <div class="role">Headset calalog</div>
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <div class="fab-ai">AI</div>
+
+                    </aside>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

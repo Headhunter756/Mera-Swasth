@@ -1,0 +1,13 @@
+package in.aap.main.repo;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import in.aap.main.beans.Patient;
+
+
+@Repository
+public interface PatientRepo extends JpaRepository<Patient, Long>{
+	boolean existsByAadhaar(int aadhaar);
+	Patient findByEmail(String email);
+}

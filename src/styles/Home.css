@@ -1,0 +1,97 @@
+.homepage {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(180deg, #081017 0%, #0f1b22 100%);
+    /* light hospital blue */
+    min-height: 100vh;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+/* About section */
+.aboutme {
+    max-width: 900px;
+    margin: 30px auto 50px auto;
+    padding: 25px;
+    background: #0f2830;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: white;
+    text-align: justify;
+}
+
+.aboutme h2 {
+    margin-bottom: 15px;
+    color: #149ae2;
+    /* deep medical blue */
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+/* Features section */
+.features {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 0px 20px 20px 20px;
+}
+
+.features h2 {
+    margin-bottom: 25px;
+    color: #149ae2;
+    font-size: 1.6rem;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Feature grid */
+.feature {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+/* ---------------- Responsive Styles ---------------- */
+@media (max-width: 768px) {
+    .aboutme {
+        font-size: 1rem;
+        padding: 20px;
+    }
+
+    .aboutme h2,
+    .features h2 {
+        font-size: 1.4rem;
+    }
+
+    .feature {
+        grid-template-columns: 1fr 1fr;
+        /* two columns on tablets */
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .homepage {
+        padding: 20px 10px;
+    }
+
+    .aboutme {
+        font-size: 0.95rem;
+        line-height: 1.4;
+        padding: 15px;
+    }
+
+    .aboutme h2,
+    .features h2 {
+        font-size: 1.2rem;
+    }
+
+    .feature {
+        grid-template-columns: 1fr;
+        /* single column on mobile */
+        gap: 15px;
+    }
+}

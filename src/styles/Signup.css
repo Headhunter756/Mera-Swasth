@@ -1,0 +1,17 @@
+.signup_box {
+    /* width: 100vw; */
+    min-height: 90vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(180deg, #081017 0%, #0f1b22 100%);
+}
+
+@media (max-width: 480px) {
+    .signup_box {
+        width: 100%;
+        min-height: 100vh;
+        /* fill screen height */
+        padding: 15px;
+        /* reduce padding */
+        box-sizing: border-box;
+    }
+}

@@ -1,0 +1,43 @@
+.card {
+    background: #0f2830;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Card image */
+.card img {
+    max-width: 80px;
+    margin-bottom: 15px;
+}
+
+/* Card description */
+.card .description {
+    font-size: 1rem;
+    color: #149ae2;
+    /* deep medical blue */
+    font-weight: bold;
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+    .card {
+        padding: 15px;
+    }
+
+    .card img {
+        max-width: 60px;
+    }
+
+    .card .description {
+        font-size: 0.9rem;
+    }
+}

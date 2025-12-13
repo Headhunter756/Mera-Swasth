@@ -1,0 +1,59 @@
+package in.aap.main.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import in.aap.main.service.CustomerDertailsService;
+import in.aap.main.service.JWTService;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+
+@RestController
+@RequestMapping("/auth/login")
+public class LoginControl {
+	
+	@Autowired
+	private JWTService jwtservice;
+	@Autowired
+	private CustomerDertailsService detailsservice;
+	Logger logger = Logger.getLogger(LoginControl.class.getName());
+	
+	@PostMapping("/")
+	public ResponseEntity<?> login(@RequestBody Login login) {
+		logger.log(Level.INFO, "Request reached at backend");
+		UserDetails details = detailsservice.loadUserByUsername(login.getEmail());
+		boolean match = jwtservice.matchPassword(login.getPasssword(), details.getPassword());
+		if (match) {
+			return ResponseEntity.ok(details);
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
+}
+
+class Login{
+	
+	private String email;
+	private String passsword;
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPasssword() {
+		return passsword;
+	}
+	public void setPasssword(String passsword) {
+		this.passsword = passsword;
+	}
+	
+}

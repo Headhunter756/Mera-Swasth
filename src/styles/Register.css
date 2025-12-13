@@ -1,0 +1,195 @@
+/* Switch buttons for Citizen vs Doctor/Hospital */
+.switch_register {
+    text-align: center;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.switch_register button {
+    background: #90e0ef;
+    /* aqua highlight */
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.switch_register button:hover {
+    background: #48cae4;
+}
+
+/* Register box container */
+.register_box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 550px;
+    margin: 0 auto;
+}
+
+/* Form visibility toggles */
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+/* Labels */
+.register_box label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Input fields */
+.register_box input[type="text"],
+.register_box input[type="email"],
+.register_box input[type="tel"],
+.register_box input[type="password"],
+.register_box select,
+.register_box textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #90e0ef;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.register_box input:focus,
+.register_box select:focus,
+.register_box textarea:focus {
+    border-color: #0077b6;
+    /* deep medical blue */
+}
+
+/* Buttons */
+.register_box input[type="button"],
+.register_box input[type="reset"] {
+    width: 48%;
+    padding: 10px;
+    margin: 10px 1%;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.register_box input[type="button"] {
+    background: #0077b6;
+    color: #ffffff;
+}
+
+.register_box input[type="button"]:hover {
+    background: #023e8a;
+}
+
+.register_box input[type="reset"] {
+    background: #90e0ef;
+    color: #000000;
+}
+
+.register_box input[type="reset"]:hover {
+    background: #48cae4;
+}
+
+/* Link to login */
+.register_box a {
+    display: block;
+    margin-top: 15px;
+    color: #0077b6;
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.register_box a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile styles for screens up to 480px */
+@media (max-width: 480px) {
+
+    .register_box {
+        width: 100%;
+        padding: 20px;
+        box-shadow: none;
+        /* simplify for mobile */
+        border-radius: 0;
+        /* flat edges for small screens */
+    }
+
+    /* Inputs and selects */
+    .register_box input[type="text"],
+    .register_box input[type="email"],
+    .register_box input[type="tel"],
+    .register_box input[type="password"],
+    .register_box select,
+    .register_box textarea {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    /* Buttons stack vertically */
+    .register_box input[type="button"],
+    .register_box input[type="reset"] {
+        width: 100%;
+        margin: 8px 0;
+        font-size: 1rem;
+    }
+
+    /* Switch buttons stack */
+    .switch_register {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .switch_register button {
+        width: 800%;
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    /* Textarea smaller by default */
+    .register_box textarea {
+        min-height: 80px;
+        max-height: 150px;
+    }
+
+    /* Links centered and larger tap area */
+    .register_box a {
+        font-size: 1rem;
+        margin-top: 20px;
+        display: block;
+        text-align: center;
+    }
+}
+
+/* Tablet styles (481px–768px) */
+@media (max-width: 768px) {
+    .register_box {
+        width: 100%;
+        padding: 25px;
+    }
+
+    .switch_register {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .switch_register button {
+        width: 100%;
+    }
+}
