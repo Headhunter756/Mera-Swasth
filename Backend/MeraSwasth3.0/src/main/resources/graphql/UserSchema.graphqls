@@ -1,0 +1,55 @@
+type Mutation{
+	createDoctor(input: CreateDoctor!): Boolean
+	createHospital(input: CreateHospital!): Boolean
+	createPatient(input: CreatePatient!): Boolean
+	login(input: CreateUser!): AuthResponse!
+}
+
+type Query{
+	hello:String	
+}
+
+type AuthResponse{
+	token: String!
+	user: User
+}
+
+type Doctor {
+  id: ID!
+  users: ID!
+  name: String!
+  email: String!
+  contact: String
+  council: String
+  licence: String
+  specialization: String
+  address: String
+}
+
+type Hospital {
+  id: ID!
+  users: ID!
+  name: String!
+  email: String!
+  contact: String
+  registration: String
+  accredation: String
+  address: String
+}
+
+type Patient {
+  id: ID!
+  users: ID!
+  name: String!
+  email: String!
+  contact: String!
+  aadhaar: Int!
+  address: String
+  abha: Int!
+}
+
+type User {
+  userid: ID!
+  email: String!
+  name: String!
+}

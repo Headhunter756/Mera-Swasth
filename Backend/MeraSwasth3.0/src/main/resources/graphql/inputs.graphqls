@@ -1,0 +1,35 @@
+input CreateDoctor{
+	name: String!
+	email: String!
+	password: String!
+	contact: String!
+	council: String!	
+	licence: String!
+	specialization: String!
+	address: String!
+}
+
+input CreateHospital{
+	 name: String!
+     email: String!
+     password: String!
+	 contact: String!
+     registration: String!
+     accredation: String!
+	 address: String!
+}
+
+input CreatePatient{
+	name: String!
+	password: String!
+	email: String!
+	contact: String!
+	aadhaar: Int!
+	address: String!
+	abha: Int!
+}
+
+input CreateUser{
+	email:String!, 
+	password:String!
+}

@@ -1,0 +1,126 @@
+package in.aap.main.user.entity;
+
+import java.util.Collection;
+import java.util.Collections;
+
+import org.jspecify.annotations.Nullable;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table
+public class Hospital implements UserDetails{	
+	
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	@OneToOne
+	@JoinColumn(name = "userid", referencedColumnName = "userid")
+    private Users user;
+	@Column
+	private String name;
+	@Column
+	private String email;
+	@Column
+	private String password;
+	@Column(length = 15)
+	private String contact;
+	@Column
+	private String registration;
+	@Column
+	private String accredation;
+	@Column
+	private String address;
+	
+	public Hospital() {}
+	
+	public Hospital(Hospital hospital) {
+		this.name = hospital.name;
+		this.email = hospital.email;
+		this.password = hospital.password;
+		this.contact = hospital.contact;
+		this.registration = hospital.registration;
+		this.accredation = hospital.accredation;
+		this.address = hospital.address;
+	}
+
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public Users getUser() {
+		return user;
+	}
+
+	public void setUser(Users user) {
+		this.user = user;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getContact() {
+		return contact;
+	}
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
+	public String getRegistration() {
+		return registration;
+	}
+	public void setRegistration(String registration) {
+		this.registration = registration;
+	}
+	public String getAccredation() {
+		return accredation;
+	}
+	public void setAccredation(String accredation) {
+		this.accredation = accredation;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return Collections.singletonList(new SimpleGrantedAuthority("HOSPITAL"));
+	}
+	@Override
+	public @Nullable String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return email;
+	}
+	
+	
+	
+}
