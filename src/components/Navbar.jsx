@@ -3,8 +3,6 @@ import { NavLink } from "react-router-dom"
 import '../styles/Navbar.css'
 import logo from '../assets/logo.jpeg'
 
-import { Disclosure, DisclosureButton } from '@headlessui/react'
-
 const Navbar = () => {
 
     const user = useSelector((state) => state.user.profile)
