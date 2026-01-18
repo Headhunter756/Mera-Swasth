@@ -11,11 +11,11 @@ const tokenSlice = createSlice({
     reducers: {
         save: (state, action) => {
             state.token = action.payload,
-                state.status = "loggedin"
+            state.status = "loggedin"
         },
         remove: (state) => {
             state.token = "",
-                state.status = "idle"
+            state.status = "idle"
         }
     }
 })

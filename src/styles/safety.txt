@@ -1,0 +1,131 @@
+/* Navbar container */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background: #17f28c; */
+    background: #13546e;
+    background: linear-gradient(90deg, rgba(19, 84, 110, 1) 0%, rgba(28, 156, 83, 1) 50%, rgba(19, 84, 110, 1) 100%);
+    padding: 15px 30px;
+    color: #0934f4;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+nav .logo a {
+    text-decoration: none;
+    color: #0934f4;
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: 50px;
+    width: 50px;
+}
+
+nav .logo .logo_img {
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+    background: transparent;
+}
+
+/* Navigation links */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.emergancy a {
+    color: red;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #0934f4;
+    font-size: 1.5rem;
+    font-weight: 500;
+    transition: color 0.3s, border-bottom 0.3s;
+    padding: 4px;
+}
+
+nav ul li a:hover {
+    color: #90e0ef;
+    /* aqua highlight */
+    /* border-bottom: 2px solid #90e0ef; */
+    background: #023e8a;
+}
+
+/* Right-side login/profile */
+nav h2 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+nav h2 a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+
+nav h2 a:hover {
+    background: #023e8a;
+    color: #90e0ef;
+}
+
+/* Profile button styling */
+.profile_button {
+    background: #90e0ef;
+    color: #000000 !important;
+    border-radius: 50%;
+    padding: 8px 12px;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.profile_button:hover {
+    background: #48cae4;
+    color: #90e0ef;
+}
+
+/* ---------------- Responsive Styles ---------------- */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 15px;
+    }
+
+    nav h2 {
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        padding: 10px;
+    }
+
+    nav .logo a {
+        font-size: 1.3rem;
+    }
+
+    nav ul li a {
+        font-size: 0.95rem;
+    }
+
+    nav h2 a {
+        font-size: 0.95rem;
+        padding: 6px 12px;
+    }
+}

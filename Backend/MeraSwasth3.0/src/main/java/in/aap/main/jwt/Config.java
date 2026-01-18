@@ -64,8 +64,8 @@ public class Config {
 	@Bean
 	public CorsConfigurationSource corsconfig() {
 		CorsConfiguration config = new CorsConfiguration();
-		config.setAllowedOrigins(List.of("https://127.0.0.1:5174"));
-		config.setAllowedHeaders(List.of("Authentication","Content-Type"));
+		config.setAllowedOrigins(List.of("http://localhost:5173"));
+		config.setAllowedHeaders(List.of("Authorization","Content-Type"));
 		config.setAllowedMethods(List.of("PUT","DELETE","GET","POST","OPTIONS"));
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		source.registerCorsConfiguration("/**", config);

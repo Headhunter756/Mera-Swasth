@@ -1,11 +1,14 @@
 import { useState } from "react"
-import { Link, redirect } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import "../styles/Login.css"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
+import { save } from "../storage/token"
 
 const Login = () => {
 
-    var authtoken = useSelector((state)=>state.token.token)
+    const authtoken = useSelector((state)=>state.token.token)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const [formdata, setFormdata] = useState({
         email: "",
@@ -18,33 +21,58 @@ const Login = () => {
     }
 
     async function login() {
-        const response = await fetch("http://localhost:8080/auth/login",{
-            method:"POST",
-            body: JSON.stringify(formdata),
-            headers:{
-                'Content-Type':"application/json"
+        const query = `
+            mutation login($input: CreateUser!) {
+                login(input: $input) {
+                    token
+                    user { userid name email }
+                }
             }
+        `
+
+        const resp = await fetch("http://localhost:8080/graphql", {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                query,
+                variables: { input: { email: formdata.email, password: formdata.password } }
+            })
         })
 
-        if (response.ok) {
-            const token = await response.headers.get('authorization');
-            authtoken = token
-            redirect("/dashboard")
+        if (!resp.ok) {
+            alert('Network error during login')
+            return
         }
-        else{
-            alert("Login failed.")
+
+        const result = await resp.json()
+        if (result.errors) {
+            alert('Login failed: ' + (result.errors[0]?.message || 'Unknown error'))
+            return
         }
+
+        const token = result.data?.login?.token
+        if (token) {
+            //dispatch(save(token))
+            //navigate('/dashboard')
+            alert("token: "+token)
+        } else {
+            alert('Login failed.')
+        }
+    }
+
+    function handleClear() {
+        setFormdata({ email: "", password: "" })
     }
 
     return (
         <div className='login_box'>
             <h2>Login</h2>
-            <label htmlFor="username">Username: </label>
-            <input type="text" name="username" id="username" value={formdata.email} onChange={handleChange} autoComplete='false'/> <br />
+            <label htmlFor="email">Email: </label>
+            <input type="text" name="email" id="email" value={formdata.email} onChange={handleChange} autoComplete="off"/> <br />
             <label htmlFor="password">Password: </label>
-            <input type="password" name="password" id="password" value={formdata.password} onChange={handleChange} autoComplete='false'/> <br />
-            <input type="button" value="Login" />
-            <input type="reset" value="Clear" onClick={login} /><br />
+            <input type="password" name="password" id="password" value={formdata.password} onChange={handleChange} autoComplete="off"/> <br />
+            <input type="button" value="Login" onClick={login} />
+            <input type="button" value="Clear" onClick={handleClear} /><br />
             <Link to={"/register"}>Dont't have an account ? Signup Here</Link>
         </div>
     )
