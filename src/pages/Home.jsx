@@ -9,6 +9,10 @@ import '../styles/Home.css'
 const Home = () => {
     return (
         <div className='homepage'>
+            <div className="aboutme">
+                <h2>About us</h2>
+                Mera Swasth is your trusted digital health companion. We securely store your medical history, manage your medicine inventory, and make it easy to schedule appointments with doctors. Our platform helps you stay on top of your health by showing recent trends and insights, while seamlessly collecting data from your smartwatch — including blood pressure, sugar levels, and more. With interactive graphs and clear visualizations, Mera Swasth empowers you to understand your health better and take informed steps toward wellness.
+            </div>
             <div className="features">
                 <h2>Why choose Mera Swasth ?</h2>
                 <div className="feature">
@@ -18,10 +22,6 @@ const Home = () => {
                     <Card src={analysis_img} alt="analysis" desc=" Personalized health insights from wearable devices" />
                     <Card src={bot_img} alt="assitance" desc="AI-powered assistance for reports and trends" />
                 </div>
-            </div>
-            <div className="aboutme">
-                <h2>About us</h2>
-                Mera Swasth is your trusted digital health companion. We securely store your medical history, manage your medicine inventory, and make it easy to schedule appointments with doctors. Our platform helps you stay on top of your health by showing recent trends and insights, while seamlessly collecting data from your smartwatch — including blood pressure, sugar levels, and more. With interactive graphs and clear visualizations, Mera Swasth empowers you to understand your health better and take informed steps toward wellness.
             </div>
         </div>
     )
