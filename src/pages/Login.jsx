@@ -40,13 +40,14 @@ const Login = () => {
         })
 
         if (!resp.ok) {
-            alert('Network error during login')
+            alert('The login is still in development, please stay turned.')
             return
         }
-
+        
         const result = await resp.json()
         if (result.errors) {
-            alert('Login failed: ' + (result.errors[0]?.message || 'Unknown error'))
+            alert('The login is still in development, please stay turned.')
+            // alert('Login failed: ' + (result.errors[0]?.message || 'Unknown error'))
             return
         }
 
@@ -56,7 +57,7 @@ const Login = () => {
             //navigate('/dashboard')
             alert("token: "+token)
         } else {
-            alert('Login failed.')
+            // alert('Login failed.')
         }
     }
 
